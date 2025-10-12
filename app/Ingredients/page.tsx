@@ -60,15 +60,19 @@ export default function Ingredients(){
         
         <div className="h-screen w-full flex items-center justify-center flex-col gap-5">
             
-            <div className='flex flex-row gap-8' >
-                <div>
+            <div className='w-full overflow-x-auto flex justify-center items-center' >
+                <div className='flex flex-row gap-8 pb-4'>
+                    <div className='flex-shrink-0 w-64 h-64'>
+
                     <Item variant='muted' size='sm'>
                         <ItemHeader>Femboy extract</ItemHeader>
                         <ItemMedia />
                         <ItemContent>
                         <ItemTitle><IconNeedle/></ItemTitle>
                         <ItemDescription>
-                            A rare item said only to be found in the land of Pierogis<br></br>
+                            <p className='grow flex'>
+                                 A rare item said only to be found in the land of Pierogis<br></br>
+                            </p>
                             <Button variant="outline" onClick={() => {setIngredientsofpot(Listofingredients[0]); {handleClick()}}} >Add It!</Button>
                         </ItemDescription>
                         </ItemContent>
@@ -76,14 +80,15 @@ export default function Ingredients(){
                         
                     </Item>
                 </div>
-                <div>
+                <div className='flex-shrink-0 w-64 h-64'>
                     <Item variant='muted' size='sm'>
                         <ItemHeader>Rabbit&apos;s foot</ItemHeader>
                         <ItemMedia />
                         <ItemContent>
                         <ItemTitle><IconCarrot/></ItemTitle>
                         <ItemDescription>
-                            Nothing special a foot it is said that when u add it one vegan dies<br></br>
+                            <p className='grow flex'>
+                            Nothing special a foot it is said that when u add it one vegan dies<br></br></p>
                             <Button variant="outline" onClick={() => {setIngredientsofpot(Listofingredients[1]); {handleClick()}}}>Add It!</Button>
                         </ItemDescription>
                         </ItemContent>
@@ -91,14 +96,15 @@ export default function Ingredients(){
                         
                     </Item>
                 </div>
-                <div>
+                <div className='flex-shrink-0 w-64 h-64'>
                     <Item variant='muted' size='sm'>
                         <ItemHeader>School Server</ItemHeader>
                         <ItemMedia />
                         <ItemContent>
                         <ItemTitle><IconServer/></ItemTitle>
                         <ItemDescription>
-                            Just a serv.. wait wtf is it doing here<br></br>
+                            <p className='grow flex'>
+                            Just a serv.. wait wtf is it doing here<br></br></p>
                             <Button variant="outline" onClick={() => {setIngredientsofpot(Listofingredients[2]); {handleClick()}}}>Add It!</Button>
                         </ItemDescription>
                         </ItemContent>
@@ -106,14 +112,15 @@ export default function Ingredients(){
                         
                     </Item>
                 </div>
-                <div>
+                <div className='flex-shrink-0 w-64 h-64'>
                     <Item variant='muted' size='sm'>
                         <ItemHeader>Friend&apos;s Vape</ItemHeader>
                         <ItemMedia />
                         <ItemContent>
                         <ItemTitle><IconSmoking/></ItemTitle>
                         <ItemDescription>
-                            Smoking is bad<br></br>
+                            <p className='flex-grow'>
+                            Smoking is bad<br></br></p>
                             <Button variant="outline" onClick={() => {setIngredientsofpot(Listofingredients[3]); {handleClick()}}}>Add It!</Button>
                         </ItemDescription>
                         </ItemContent>
@@ -121,14 +128,15 @@ export default function Ingredients(){
                         
                     </Item>
                 </div>
-                <div>
+                <div className='flex-shrink-0 w-64 h-64'>
                     <Item variant='muted' size='sm'>
                         <ItemHeader>Bocian 0.5L 40% 20zl</ItemHeader>
                         <ItemMedia />
                         <ItemContent>
                         <ItemTitle><IconVaccineBottle/></ItemTitle>
                         <ItemDescription>
-                            Polish god&apos;s nectar<br></br>
+                            <p className='flex-grow'>
+                            Polish god&apos;s nectar<br></br></p>
                             <Button variant="outline" onClick={() => {setIngredientsofpot(Listofingredients[4]); {handleClick()}}}>Add It!</Button>
                         </ItemDescription>
                         </ItemContent>
@@ -138,6 +146,7 @@ export default function Ingredients(){
                 </div>
 
             </div>
+        </div>
             <div className="flex flex-col items-center justify-center">
           <Link href={'/'} className='cursor-pointer'>
                 <Button variant="outline">
