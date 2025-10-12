@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Item, ItemContent, ItemDescription, ItemHeader, ItemMedia } from "@/components/ui/item";
-import { useIngredients } from "@/lib/providers/PotionContext";
-import Link from "next/link";
+
 
 
 interface PotionProps{
@@ -10,10 +9,7 @@ interface PotionProps{
 
 
 export default function Potion10 ({ onClose }: PotionProps){
-    const { selectedIngredients, setSelectedIngredients } = useIngredients();
-        function handleClick() {
-            setSelectedIngredients([])
-        }
+
     return(
         <div className="fixed top-0 left-0 w-screen h-screen z-[9999] flex items-center justify-center bg-white flex-col gap-9">
             <div className="text-black text-4xl font-bold animate-pulse">

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Item, ItemContent, ItemDescription, ItemHeader, ItemMedia } from "@/components/ui/item";
-import { useIngredients } from "@/lib/providers/PotionContext";
-import Link from "next/link";
+
 
 interface PotionProps{
     onClose:() => void;
