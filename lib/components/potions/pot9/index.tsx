@@ -13,7 +13,7 @@ export default function Potion9 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>You start speaking in vape clouds that foretell disappointing futures.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">You start speaking in vape clouds that foretell disappointing futures.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

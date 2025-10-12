@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, JSX, use,  } from "react";
-import Image from "next/image";
+import { motion } from 'framer-motion'
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useIngredients } from "@/lib/providers/PotionContext";
@@ -29,14 +29,15 @@ export default function Main() {
     setTimeout(()=>{
       if(selectedIngredients.length === 2){
         
-          const potion =getPotionComponent()
+          const potion = getPotionComponent()
           setPotionComponent(potion)
       }
-    },4000)
+    },2000)
 
   }
   useEffect(() =>{
     handleBrew()
+    ShowAnimation()
     setAnimating(true)
   },[selectedIngredients])
   useEffect(()=> {
@@ -50,10 +51,14 @@ export default function Main() {
   function ShowAnimation(){
     if(isAnimating && selectedIngredients.length == 2){
       return(
-        <>
-        <Image src='./assets/potion-icon-png-15.png' alt='Left Bottle'/>
-        <Image src='./assets/potion-icon-png-15.png' alt='Right Bottle'/>
-        </>
+        <div className="flex items-center justify-center flex-row">
+          <div className=" scale-50">
+            <motion.img animate={{rotate: 100, transition: { duration: 1.5 }} } src='./assets/potion-icon-png-15.png' alt='Left Bottle'/>
+          </div>
+          <div className=" scale-50">
+        <motion.img animate={{rotate: -100, transition: { duration: 1.5 }}}src='./assets/potion-icon-png-15.png' alt='Right Bottle'/>
+          </div>
+        </div>
       )
     }
   }
@@ -95,7 +100,10 @@ export default function Main() {
 
   return (
     <div className="h-screen w-full flex items-center justify-center relative">
+      
       <div className="flex flex-col items-center justify-center space-y-8 relative z-10">
+        {ShowAnimation()}
+        
         <div className="relative">
           <Pot />
         </div>

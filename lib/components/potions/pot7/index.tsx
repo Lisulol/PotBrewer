@@ -13,7 +13,7 @@ export default function Potion7 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>You gain infinite wisdom for 4.2 seconds before coughing it all out.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">You gain infinite wisdom for 4.2 seconds before coughing it all out.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

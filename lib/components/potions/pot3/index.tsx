@@ -13,7 +13,7 @@ export default function Potion3 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>Creates a vape cloud so thick it opens a portal to another timeline.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">Creates a vape cloud so thick it opens a portal to another timeline.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

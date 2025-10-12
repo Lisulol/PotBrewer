@@ -13,7 +13,7 @@ export default function Potion6 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>Makes everything seem fine. It’s not, but it feels fine.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">Makes everything seem fine. It’s not, but it feels fine.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

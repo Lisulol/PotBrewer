@@ -13,7 +13,7 @@ export default function Potion4 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>Fixes 10 bugs in your code but adds 20 new ones with Polish variable names.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">Fixes 10 bugs in your code but adds 20 new ones with Polish variable names.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

@@ -13,7 +13,7 @@ export default function Potion5 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>IMakes you cute and lucky for 15 minutes. After that you trip over air.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">It makes you cute and lucky for 15 minutes. After that you trip over air.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

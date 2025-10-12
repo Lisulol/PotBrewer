@@ -13,7 +13,7 @@ export default function Potion8 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>Instantly changes your gender, your accent, and your Spotify playlist.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">Instantly changes your gender, your accent, and your Spotify playlist.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

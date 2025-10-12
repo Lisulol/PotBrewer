@@ -13,7 +13,7 @@ export default function Potion1 (){
                     <div className="flex items-center justify-center flex-col">
 
                     <ItemMedia>
-                        <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
+                        <img  src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
                     <ItemDescription>I think there is nothing to explain here</ItemDescription>
                     </div>

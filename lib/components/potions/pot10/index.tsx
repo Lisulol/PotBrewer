@@ -13,7 +13,7 @@ export default function Potion10 (){
                     <ItemMedia>
                         <img src="/assets/potion-icon-png-15.png" alt="Potion Icon" />
                     </ItemMedia>
-                    <ItemDescription>You disappear into thin air and reappear holding a pierogi.</ItemDescription>
+                    <ItemDescription className="max-w-3xs text-center mt-2">You disappear into thin air and reappear holding a pierogi.</ItemDescription>
                     </div>
                 </ItemContent>
             </Item>

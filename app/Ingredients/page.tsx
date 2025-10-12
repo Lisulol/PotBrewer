@@ -45,7 +45,7 @@ export default function Ingredients(){
     function handleClick(){
         if( selectedIngredients.length > 1)
         {
-            alert("U cant add more then 2 ingredients. Maybe u are asking why.... Fuck off")
+            alert("U cant add more then 2 ingredients. Maybe u are asking why.... Dont ask. Select again")
             setSelectedIngredients([])
         }
         
