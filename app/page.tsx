@@ -17,7 +17,7 @@ import Potion10 from "@/lib/components/potions/pot10";
 import Pot from "@/lib/components/Pot";
 
 export default function Main() {
-  const { selectedIngredients } = useIngredients();
+  const { selectedIngredients, setSelectedIngredients } = useIngredients();
   const [isAnimating, setAnimating] = useState(false);
   const [isShown, setShowing] = useState(false);
   const [potionComponent, setPotionComponent] = useState<JSX.Element | null>(null);
@@ -83,18 +83,24 @@ export default function Main() {
   }
 
   const getPotionComponent = (): JSX.Element | null => {
+
+    const closePotion = () => {
+      setPotionComponent(null);
+      setSelectedIngredients([])
+    }
+
     const [a, b] = selectedIngredients;
     const match = (x: string, y: string) => (a === x && b === y) || (a === y && b === x);
-    if (match("Femboy extract", "Rabbits foot")) return <Potion1 />;
-    if (match("Femboy extract", "Freinds vape")) return <Potion2 />;
-    if (match("Rabbits foot", "Freinds vape")) return <Potion3 />;
-    if (match("School Server", "Femboy extract")) return <Potion4 />;
-    if (match("Rabbits foot", "School Server")) return <Potion5 />;
-    if (match("Bocian", "School Server")) return <Potion6 />;
-    if (match("Bocian", "Freinds vape")) return <Potion7 />;
-    if (match("Rabbits foot", "Bocian")) return <Potion8 />;
-    if (match("School Server", "Freinds vape")) return <Potion9 />;
-    if (match("Bocian", "Femboy extract")) return <Potion10 />;
+    if (match("Femboy extract", "Rabbits foot")) return <Potion1 onClose={closePotion}/>;
+    if (match("Femboy extract", "Freinds vape")) return <Potion2 onClose={closePotion}/>;
+    if (match("Rabbits foot", "Freinds vape")) return <Potion3 onClose={closePotion}/>;
+    if (match("School Server", "Femboy extract")) return <Potion4 onClose={closePotion}/>;
+    if (match("Rabbits foot", "School Server")) return <Potion5 onClose={closePotion}/>;
+    if (match("Bocian", "School Server")) return <Potion6 onClose={closePotion}/>;
+    if (match("Bocian", "Freinds vape")) return <Potion7 onClose={closePotion}/>;
+    if (match("Rabbits foot", "Bocian")) return <Potion8 onClose={closePotion}/>;
+    if (match("School Server", "Freinds vape")) return <Potion9 onClose={closePotion} />;
+    if (match("Bocian", "Femboy extract")) return <Potion10 onClose={closePotion}/>;
     return null;
   };
 
