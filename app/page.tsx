@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState, useRef, JSX } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, JSX, use,  } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -19,35 +18,66 @@ import Pot from "@/lib/components/Pot";
 
 export default function Main() {
   const { selectedIngredients } = useIngredients();
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [showPotion, setShowPotion] = useState(false);
-  const timeoutRef = useRef<number | null>(null);
+  const [isAnimating, setAnimating] = useState(false);
+  const [isShown, setShowing] = useState(false);
+  const [potionComponent, setPotionComponent] = useState<JSX.Element | null>(null);
 
-  useEffect(() => {
-    if (selectedIngredients.length === 2) {
-      // Don't automatically show potion, wait for user to brew
-      setShowPotion(false);
-    } else {
-      setShowPotion(false);
+
+
+
+  function handleBrew(){
+    setTimeout(()=>{
+      if(selectedIngredients.length === 2){
+        
+          const potion =getPotionComponent()
+          setPotionComponent(potion)
+      }
+    },4000)
+
+  }
+  useEffect(() =>{
+    handleBrew()
+    setAnimating(true)
+  },[selectedIngredients])
+  useEffect(()=> {
+    if(isAnimating == true){
+      setShowing(true)
     }
-  }, [selectedIngredients]);
+},[isAnimating])
 
-  const startBrewing = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setShowPotion(false);
 
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
-    timeoutRef.current = window.setTimeout(() => {
-      setIsAnimating(false);
-      setShowPotion(true);
-      timeoutRef.current = null;
-    }, 3500);
-  };
+  function ShowAnimation(){
+    if(isAnimating && selectedIngredients.length == 2){
+      return(
+        <>
+        <Image src='./assets/potion-icon-png-15.png' alt='Left Bottle'/>
+        <Image src='./assets/potion-icon-png-15.png' alt='Right Bottle'/>
+        </>
+      )
+    }
+  }
+
+  const ShowBrew = () =>{
+    if( selectedIngredients.length == 2){
+      return (
+           <div className="mt-8">
+            <p className="text-muted-foreground animate-pulse">Adding ingredients...</p>
+          </div>
+      )
+    }
+    else{
+      return(
+          <Link href="/Ingredients" className="cursor-pointer">
+            <Button className='h-14 w-58'variant="outline">Ingredients</Button>
+          </Link>
+      )
+    }
+    
+
+  }
 
   const getPotionComponent = (): JSX.Element | null => {
-    if (selectedIngredients.length !== 2) return null;
     const [a, b] = selectedIngredients;
     const match = (x: string, y: string) => (a === x && b === y) || (a === y && b === x);
     if (match("Femboy extract", "Rabbits foot")) return <Potion1 />;
@@ -64,78 +94,16 @@ export default function Main() {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center relative overflow-hidden">
+    <div className="h-screen w-full flex items-center justify-center relative">
       <div className="flex flex-col items-center justify-center space-y-8 relative z-10">
         <div className="relative">
           <Pot />
         </div>
-
-        {selectedIngredients.length === 0 && (
-          <Link href="/Ingredients" className="cursor-pointer">
-            <Button variant="outline">Ingredients</Button>
-          </Link>
-        )}
-
-        {selectedIngredients.length === 2 && !showPotion && !isAnimating && (
-          <Button variant="outline" onClick={startBrewing}>
-            Brew Potion
-          </Button>
-        )}
-
-        {selectedIngredients.length === 2 && isAnimating && (
-          <div className="mt-8">
-            <p className="text-muted-foreground animate-pulse">Adding ingredients...</p>
-          </div>
-        )}
-
-        {selectedIngredients.length === 2 && showPotion && !isAnimating && (
-          <div className="relative flex items-center justify-center w-40 h-40">
-            <motion.div
-              className="absolute inset-0 flex items-center justify-center"
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {getPotionComponent()}
-            </motion.div>
-          </div>
-        )}
+        {ShowBrew()}
+        {potionComponent}
+        
+        
       </div>
-
-      {/* Bottle animations - full screen overlay */}
-      {isAnimating && (
-        <div className="fixed inset-0 z-50 pointer-events-none">
-          <div className="relative w-full h-full">
-            <motion.div
-              initial={{ x: -200, y: "30vh", rotate: 0, opacity: 1 }}
-              animate={{ x: "50vw", y: "40vh", rotate: -360, opacity: 0 }}
-              transition={{ 
-                duration: 2.5, 
-                ease: "easeInOut",
-                opacity: { delay: 2, duration: 0.5 }
-              }}
-              className="absolute"
-              style={{ transformOrigin: "center" }}
-            >
-              <Image src="/assets/potion-icon-png-15.png" alt="Bottle left animated" width={80} height={120} />
-            </motion.div>
-
-            <motion.div
-              initial={{ x: "100vw", y: "30vh", rotate: 0, opacity: 1 }}
-              animate={{ x: "50vw", y: "40vh", rotate: 360, opacity: 0 }}
-              transition={{ 
-                duration: 2.5, 
-                ease: "easeInOut",
-                opacity: { delay: 2, duration: 0.5 }
-              }}
-              className="absolute"
-              style={{ transformOrigin: "center" }}
-            >
-              <Image src="/assets/potion-icon-png-15.png" alt="Bottle right animated" width={80} height={120} />
-            </motion.div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
