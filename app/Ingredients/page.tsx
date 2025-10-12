@@ -78,7 +78,7 @@ export default function Ingredients(){
                 </div>
                 <div>
                     <Item variant='muted' size='sm'>
-                        <ItemHeader>Rabbit's foot</ItemHeader>
+                        <ItemHeader>Rabbit&apos;s foot</ItemHeader>
                         <ItemMedia />
                         <ItemContent>
                         <ItemTitle><IconCarrot/></ItemTitle>
@@ -108,7 +108,7 @@ export default function Ingredients(){
                 </div>
                 <div>
                     <Item variant='muted' size='sm'>
-                        <ItemHeader>Friend's Vape</ItemHeader>
+                        <ItemHeader>Friend&apos;s Vape</ItemHeader>
                         <ItemMedia />
                         <ItemContent>
                         <ItemTitle><IconSmoking/></ItemTitle>
@@ -128,7 +128,7 @@ export default function Ingredients(){
                         <ItemContent>
                         <ItemTitle><IconVaccineBottle/></ItemTitle>
                         <ItemDescription>
-                            Polish god's nectar<br></br>
+                            Polish god&apos;s nectar<br></br>
                             <Button variant="outline" onClick={() => {setIngredientsofpot(Listofingredients[4]); {handleClick()}}}>Add It!</Button>
                         </ItemDescription>
                         </ItemContent>
