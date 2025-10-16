@@ -14,7 +14,7 @@ import { useIngredients } from "@/lib/providers/PotionContext"
 import { IconCarrot, IconNeedle, IconServer, IconSmoking, IconVaccineBottle } from "@tabler/icons-react"
 import Link from "next/link"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 
@@ -48,11 +48,18 @@ export default function Ingredients(){
             alert("U cant add more then 2 ingredients. Maybe u are asking why.... Dont ask. Select again")
             setSelectedIngredients([])
         }
-        
-
+       
 
 
     }
+    useEffect(()=>{
+         
+        if(selectedIngredients.length === 2 && selectedIngredients[0] === selectedIngredients[1])
+        {
+            alert("Please add 2 different ingredients(I didn't account for someone to do 2 same ingredients srry)")
+            setSelectedIngredients([])
+        }
+    },[selectedIngredients])
 
 
 
